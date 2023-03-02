@@ -1,0 +1,21 @@
+{
+  "name": "ejabberd",
+  "source": "ghcr.io/nethserver/ejabberd",
+  "description": {
+    "en": "NethServer integration of ejabberd XMPP server"
+  },
+  "categories": [
+    "collaboration"
+  ],
+  "authors": [
+    {
+      "name": "Stephane de Labrusse",
+      "email": "stephdl@de-labrusse.fr"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.ejabberd.im/",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-ejabberd"
+  }
+}
