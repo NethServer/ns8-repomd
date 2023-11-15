@@ -1,0 +1,20 @@
+{
+  "name": "NethVoice",
+  "description": {
+    "en": "NethVoice Module",
+    "it": "Modulo NethVoice"
+  },
+  "categories": [],
+  "authors": [
+    {
+      "name": "Nethesis",
+      "email": "sviluppo@nethesis.it"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://github.com/nethesis/ns8-nethvoice",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/nethesis/ns8-nethvoice"
+  },
+  "source": "ghcr.io/nethesis/nethvoice"
+}
