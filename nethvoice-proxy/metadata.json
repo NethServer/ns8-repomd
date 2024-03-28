@@ -1,0 +1,19 @@
+{
+  "name": "NethVoice Proxy",
+  "description": {
+    "en": "NethVoice proxy module"
+  },
+  "categories": [],
+  "authors": [
+    {
+      "name": "Nethesis",
+      "email": "sviluppo@nethesis.it"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://github.com/nethesis/ns8-nethvoice-proxy",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/nethesis/ns8-nethvoice-proxy"
+},
+  "source": "ghcr.io/nethesis/nethvoice-proxy"
+}
