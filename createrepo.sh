@@ -24,14 +24,12 @@ set -e
 
 if ! buildah containers --format "{{.ContainerName}}" | grep -q repomd-builder; then
     echo "Pulling Python runtime and Skopeo..."
-    buildah from --name repomd-builder -v "${PWD}:/usr/src:Z" docker.io/library/python:3.9-alpine
+    buildah from --name repomd-builder -v "${PWD}:/usr/src:Z" docker.io/library/python:3.11-alpine
     buildah run repomd-builder sh <<EOF
-cd /usr/src
-python -mvenv /opt/pyenv --upgrade-deps
-source /opt/pyenv/bin/activate
-pip install semver
+python3 -mvenv /opt/pyenv --upgrade-deps
+/opt/pyenv/bin/pip3 install semver==3.0.1 filetype
 apk add skopeo
 EOF
 fi
 
-buildah run repomd-builder sh -c "cd /usr/src ; . /opt/pyenv/bin/activate ; python createrepo.py"
+buildah run --workingdir /usr/src repomd-builder /opt/pyenv/bin/python3 createrepo.py

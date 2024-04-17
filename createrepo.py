@@ -30,11 +30,18 @@ import os
 import sys
 import copy
 import json
-import imghdr
+import filetype
 import semver
 import subprocess
 import glob
 import urllib.request
+
+def is_pngfile(file_path):
+    kind = filetype.guess(file_path)
+    if kind is None:
+        return False
+
+    return kind.extension == 'png'
 
 path = '.'
 index = []
@@ -104,7 +111,7 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
         except:
             pass
 
-    if os.path.isfile(logo) and imghdr.what(logo) == "png":
+    if os.path.isfile(logo) and is_pngfile(logo):
         metadata["logo"] = "logo.png"
 
     # add screenshots if pngs are available inside the screenshots directory
@@ -112,31 +119,63 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
     if os.path.isdir(screenshot_dirs):
         with os.scandir(screenshot_dirs) as sdir:
             for screenshot in sdir:
-                if imghdr.what(screenshot) == "png":
+                if is_pngfile(screenshot.path):
                     metadata["screenshots"].append(os.path.join("screenshots",screenshot.name))
 
-    print("Inspect " + metadata["source"])
+    print("Inspect " + metadata["source"], file=sys.stderr)
+    metadata["versions"] = []
     # Parse the image info from remote registry to retrieve tags
-    with subprocess.Popen(["skopeo", "inspect", f'docker://{metadata["source"]}'], stdout=subprocess.PIPE, stderr=sys.stderr) as proc:
-        info = json.load(proc.stdout)
-        metadata["versions"] = []
-        versions = []
-        for tag in info["RepoTags"]:
-            try:
-                versions.append(semver.VersionInfo.parse(tag))
-                # Retrieve labels for each valid version
-                p = subprocess.Popen(["skopeo", "inspect", f'docker://{metadata["source"]}:{tag}'], stdout=subprocess.PIPE, stderr=sys.stderr)
-                info_tags = json.load(p.stdout)
-                version_labels[tag] = info_tags['Labels']
-            except:
-                # skip invalid semantic versions
-                pass
+    try:
+        with subprocess.Popen(["skopeo", "inspect", 'docker://' + metadata["source"]], stdout=subprocess.PIPE, stderr=sys.stderr) as proc:
+            repo_inspect = json.load(proc.stdout)
 
-        # Sort by most recent
-        for v in sorted(versions, reverse=True):
-            metadata["versions"].append({"tag": f"{v}", "testing": (not v.prerelease is None),  "labels": version_labels[f"{v}"]})
+        # Filter out non-semver tags and reverse-sort remaining tags from
+        # younger to older:
+        semver_tags = list(sorted(filter(semver.VersionInfo.is_valid, repo_inspect["RepoTags"]),
+            key=semver.parse_version_info,
+            reverse=True,
+        ))
 
-    index.append(metadata)
+    except Exception as ex:
+        print(f'[ERROR] cannot inspect {metadata["source"]}', ex, file=sys.stderr)
+        continue
+
+    testing_found = False # record if a testing release was found
+    for tag in semver_tags:
+        semver_tag = semver.parse_version_info(tag)
+
+        if testing_found and semver_tag.prerelease is not None:
+            # skip older testing releases, we do not need them
+            continue
+
+        try:
+            # Fetch the image labels
+            with subprocess.Popen(["skopeo", "inspect", f'docker://{metadata["source"]}:{tag}'], stdout=subprocess.PIPE, stderr=sys.stderr) as proc:
+                image_inspect = json.load(proc.stdout)
+            image_labels = image_inspect['Labels']
+        except Exception as ex:
+            print(f'[ERROR] cannot inspect {metadata["source"]}:{tag}', ex, file=sys.stderr)
+            continue
+
+        image_version = {
+            "tag": tag,
+            "testing": semver_tag.prerelease is not None,
+            "labels": image_labels,
+        }
+        print("* Add version", tag)
+        metadata["versions"].append(image_version)
+
+        if semver_tag.prerelease is None:
+            # Only the last stable tag is actually needed: stop here
+            break
+        else:
+            testing_found = True
+
+
+    if metadata["versions"]:
+        index.append(metadata)
+    else:
+        print("[ERROR] no versions found for", metadata["source"], file=sys.stderr)
 
 with open (os.path.join(path, 'repodata.json'), 'w') as outfile:
     json.dump(index, outfile, separators=(',', ':'))
