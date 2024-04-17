@@ -88,7 +88,7 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
     # if a file is not present, download from git repository:
     # assume the source package is hosted on GithHub under NethServer organization
     if not os.path.isfile(metadata_file):
-        print(f'Downloading metadata for {metadata["name"]}')
+        print(f'Downloading metadata for {metadata["name"]}', file=sys.stderr)
         url = f'https://raw.githubusercontent.com/NethServer/ns8-{metadata["name"]}/main/ui/public/metadata.json'
         res = urllib.request.urlopen(urllib.request.Request(url))
         with open(metadata_file, 'wb') as metadata_fpw:
@@ -102,7 +102,7 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
     # add it only if it's a PNG
     logo = os.path.join(entry_name, "logo.png")
     if not os.path.isfile(logo):
-        print(f'Downloading logo for {metadata["name"]}')
+        print(f'Downloading logo for {metadata["name"]}', file=sys.stderr)
         url = f'https://raw.githubusercontent.com/NethServer/ns8-{metadata["name"]}/main/ui/src/assets/module_default_logo.png'
         try:
             res = urllib.request.urlopen(urllib.request.Request(url))
@@ -162,7 +162,7 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
             "testing": semver_tag.prerelease is not None,
             "labels": image_labels,
         }
-        print("* Add version", tag)
+        print("* Add version", tag, file=sys.stderr)
         metadata["versions"].append(image_version)
 
         if semver_tag.prerelease is None:
