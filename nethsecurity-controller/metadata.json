@@ -1,0 +1,20 @@
+{
+  "name": "Nethsecurity Controller",
+  "description": {
+    "en": "Centralized NethSecurity firewall manager",
+    "it": "Gestore centralizzato di firewall NethSecurity"
+  },
+  "categories": ["security"],
+  "authors": [
+    {
+      "name": "Nethesis dev team",
+      "email": "sviluppo@nethesis.it"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethsecurity.org/",
+    "bug_url": "https://github.com/NethServer/nethsecurity/issues",
+    "code_url": "https://github.com/NethServer/ns8-nethsecurity-controller"
+  },
+  "source": "ghcr.io/nethserver/nethsecurity-controller"
+}

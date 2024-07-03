@@ -1,0 +1,61 @@
+name: repomd
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+  - cron:  '25 0,6,12,18 * * *'
+
+jobs:
+  repomd:
+    runs-on: ubuntu-20.04
+    env:
+      DO_SPACE_NAME: 'ns8'
+      DO_SPACE_REGION: 'ams3'
+      CDN_DOMAIN: 'distfeed.nethserver.org'
+    steps:
+    - id: checkout
+      uses: actions/checkout@v3
+
+    - id: buildmd
+      run: |
+        bash createrepo.sh
+
+    - id: lpublish
+      name: "Publish metadata on GitHub"
+      if: ${{ github.ref == 'refs/heads/main' }}
+      run: |
+        git config user.name nethbot
+        git config user.email nethbot@nethesis.it
+        BRANCH=$(basename ${{ github.ref }})
+        COMMIT_MESSAGE="repomd@$BRANCH"
+        REMOTE_BRANCH="repomd"
+        mkdir -p .dst
+        mv repodata.json .dst/
+        cp -a $(ls -d */) .dst/
+        git add .dst/
+        TREE=$(git write-tree --prefix=.dst)
+        COMMIT=$(git commit-tree -m "${COMMIT_MESSAGE}" ${TREE})
+        git push -f origin $COMMIT:refs/heads/${REMOTE_BRANCH}
+        {
+          echo "Repository metadata has been published to"
+          echo ""
+          echo "https://raw.githubusercontent.com/${{ github.repository }}/${REMOTE_BRANCH}/repodata.json"
+          echo ""
+          echo "Source"
+          echo ""
+          echo "https://github.com/${{ github.repository }}/tree/${REMOTE_BRANCH}"
+          echo ""
+        } >> $GITHUB_STEP_SUMMARY
+
+    - id: publish
+      name: "Publish the repository metadata"
+      uses: BetaHuhn/do-spaces-action@v2
+      if: ${{ github.ref == 'refs/heads/main' }}
+      with:
+        access_key: ${{ secrets.DO_SPACE_ACCESS_KEY }}
+        secret_key: ${{ secrets.DO_SPACE_SECRET_KEY }}
+        space_name: ${{ env.DO_SPACE_NAME }}
+        space_region: ${{ env.DO_SPACE_REGION }}
+        cdn_domain: ${{ env.CDN_DOMAIN }}
+        source: .dst/
+        out_dir: ns8/updates/
