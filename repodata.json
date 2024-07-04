@@ -93,7 +93,7 @@
         },
         "logo": "logo.png",
         "screenshots": [],
-        "categories": [],
+        "categories": ["storage"],
         "authors": [
             {
                 "name": "Tommaso Bailetti",
