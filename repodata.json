@@ -115,6 +115,7 @@
                     "io.buildah.version": "1.23.1",
                     "org.nethserver.authorizations": "node:fwadm",
                     "org.nethserver.images": "ghcr.io/nethserver/dnsmasq-server:1.0.3",
+                    "org.nethserver.max-per-node": "1",
                     "org.nethserver.rootfull": "1"
                 }
             },
