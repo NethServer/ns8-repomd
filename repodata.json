@@ -72,6 +72,17 @@
         "source": "ghcr.io/nethserver/ldapproxy",
         "versions": [
             {
+                "tag": "2.0.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module no_data_backup",
+                    "org.nethserver.images": "docker.io/library/nginx:1.25.4-alpine",
+                    "org.nethserver.min-core": "2.10.0",
+                    "org.nethserver.tcp-ports-demand": "8"
+                }
+            },
+            {
                 "tag": "1.0.2",
                 "testing": false,
                 "labels": {
@@ -116,6 +127,8 @@
                     "org.nethserver.authorizations": "node:fwadm",
                     "org.nethserver.images": "ghcr.io/nethserver/dnsmasq-server:1.0.3",
                     "org.nethserver.max-per-node": "1",
+                    "org.nethserver.min-core": "2.10.0",
+                    "org.nethserver.min-from": "1.0.2",
                     "org.nethserver.rootfull": "1"
                 }
             },
@@ -126,6 +139,35 @@
                     "io.buildah.version": "1.23.1",
                     "org.nethserver.authorizations": "node:fwadm",
                     "org.nethserver.images": "ghcr.io/nethserver/dnsmasq-server:1.0.2",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.min-core": "2.10.0",
+                    "org.nethserver.min-from": "1.0.0-dev.1",
+                    "org.nethserver.rootfull": "1"
+                }
+            },
+            {
+                "tag": "1.0.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm",
+                    "org.nethserver.images": "ghcr.io/nethserver/dnsmasq-server:1.0.0",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.min-core": "2.7.0",
+                    "org.nethserver.min-from": "0.0.1",
+                    "org.nethserver.rootfull": "1"
+                }
+            },
+            {
+                "tag": "1.0.0-dev.1",
+                "testing": true,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm",
+                    "org.nethserver.images": "ghcr.io/nethserver/dnsmasq-server:1.0.0-dev.1",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.min-core": "2.7.0",
+                    "org.nethserver.min-from": "0.0.1",
                     "org.nethserver.rootfull": "1"
                 }
             }
@@ -391,6 +433,18 @@
         },
         "source": "ghcr.io/nethserver/openldap",
         "versions": [
+            {
+                "tag": "2.5.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm",
+                    "org.nethserver.flags": "core_module account_provider",
+                    "org.nethserver.images": "ghcr.io/nethserver/openldap-server:2.5.0",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            },
             {
                 "tag": "2.2.3",
                 "testing": false,
