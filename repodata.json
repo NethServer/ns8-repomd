@@ -249,6 +249,15 @@
                 }
             },
             {
+                "tag": "2.8.6",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module",
+                    "org.nethserver.images": "ghcr.io/nethserver/redis:2.8.6 ghcr.io/nethserver/rsync:2.8.6 ghcr.io/nethserver/restic:2.8.6 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:2.8.6"
+                }
+            },
+            {
                 "tag": "2.8.5",
                 "testing": false,
                 "labels": {
