@@ -104,7 +104,9 @@
         },
         "logo": "logo.png",
         "screenshots": [],
-        "categories": ["storage"],
+        "categories": [
+            "storage"
+        ],
         "authors": [
             {
                 "name": "Tommaso Bailetti",
@@ -882,6 +884,16 @@
         },
         "source": "ghcr.io/nethserver/loki",
         "versions": [
+            {
+                "tag": "1.3.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module",
+                    "org.nethserver.images": "docker.io/traefik:v2.4 docker.io/grafana/loki:2.2.1",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            },
             {
                 "tag": "1.2.0-dev.2",
                 "testing": true,
