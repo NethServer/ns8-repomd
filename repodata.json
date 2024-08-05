@@ -240,12 +240,21 @@
         "source": "ghcr.io/nethserver/core",
         "versions": [
             {
-                "tag": "2.9.0-dev.2",
+                "tag": "2.9.3-dev.2",
                 "testing": true,
                 "labels": {
                     "io.buildah.version": "1.23.1",
                     "org.nethserver.flags": "core_module",
-                    "org.nethserver.images": "ghcr.io/nethserver/redis:2.9.0-dev.2 ghcr.io/nethserver/rsync:2.9.0-dev.2 ghcr.io/nethserver/restic:2.9.0-dev.2 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:2.9.0-dev.2"
+                    "org.nethserver.images": "ghcr.io/nethserver/redis:2.9.3-dev.2 ghcr.io/nethserver/rsync:2.9.3-dev.2 ghcr.io/nethserver/restic:2.9.3-dev.2 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:2.9.3-dev.2"
+                }
+            },
+            {
+                "tag": "2.9.2",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module",
+                    "org.nethserver.images": "ghcr.io/nethserver/redis:2.9.2 ghcr.io/nethserver/rsync:2.9.2 ghcr.io/nethserver/restic:2.9.2 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:2.9.2"
                 }
             },
             {
@@ -327,12 +336,12 @@
         "source": "ghcr.io/nethesis/nethvoice",
         "versions": [
             {
-                "tag": "0.0.1-rc.2.1.0",
-                "testing": true,
+                "tag": "1.0.2",
+                "testing": false,
                 "labels": {
                     "io.buildah.version": "1.23.1",
                     "org.nethserver.authorizations": "traefik@any:fulladm node:fwadm nethvoice-proxy@any:routeadm",
-                    "org.nethserver.images": "ghcr.io/nethesis/nethvoice-mariadb:0.0.1-rc.2.1.0     ghcr.io/nethesis/nethvoice-freepbx:0.0.1-rc.2.1.0     ghcr.io/nethesis/nethvoice-cti-server:0.0.1-rc.2.1.0     ghcr.io/nethesis/nethvoice-cti-ui:0.0.1-rc.2.1.0     ghcr.io/nethesis/nethvoice-tancredi:0.0.1-rc.2.1.0     ghcr.io/nethesis/nethvoice-janus:0.0.1-rc.2.1.0     ghcr.io/nethesis/nethvoice-phonebook:0.0.1-rc.2.1.0     docker.io/library/redis:7.0.10-alpine     ghcr.io/nethesis/nethvoice-reports-ui:0.0.1-rc.2.1.0     ghcr.io/nethesis/nethvoice-reports-api:0.0.1-rc.2.1.0",
+                    "org.nethserver.images": "ghcr.io/nethesis/nethvoice-mariadb:1.0.2     ghcr.io/nethesis/nethvoice-freepbx:1.0.2     ghcr.io/nethesis/nethvoice-cti-server:1.0.2     ghcr.io/nethesis/nethvoice-cti-ui:1.0.2     ghcr.io/nethesis/nethvoice-tancredi:1.0.2     ghcr.io/nethesis/nethvoice-janus:1.0.2     ghcr.io/nethesis/nethvoice-phonebook:1.0.2     docker.io/library/redis:7.0.10-alpine     ghcr.io/nethesis/nethvoice-reports-ui:1.0.2     ghcr.io/nethesis/nethvoice-reports-api:1.0.2",
                     "org.nethserver.rootfull": "0",
                     "org.nethserver.tcp-ports-demand": "30"
                 }
