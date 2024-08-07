@@ -4,7 +4,7 @@
     "en": "NethVoice Module",
     "it": "Modulo NethVoice"
   },
-  "categories": [],
+  "categories": ["communication"],
   "authors": [
     {
       "name": "Nethesis",
