@@ -35,6 +35,14 @@ import semver
 import subprocess
 import glob
 import urllib.request
+import yaml
+
+
+try:
+    pins = yaml.safe_load(open("pins.yml"))
+except Exception as ex:
+    print("[WARNING] while parsing pins.yml:", ex, file=sys.stderr)
+    pins = {}
 
 def is_pngfile(file_path):
     kind = filetype.guess(file_path)
@@ -162,7 +170,7 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
             "testing": semver_tag.prerelease is not None,
             "labels": image_labels,
         }
-        print("* Add version", tag, file=sys.stderr)
+        print("* Add registry version", tag, file=sys.stderr)
         metadata["versions"].append(image_version)
 
         if semver_tag.prerelease is None:
@@ -171,6 +179,24 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
         else:
             testing_found = True
 
+    for tag in pins.get(entry_name, []):
+        semver_tag = semver.parse_version_info(tag)
+        try:
+            # Fetch the pinned image labels
+            with subprocess.Popen(["skopeo", "inspect", f'docker://{metadata["source"]}:{tag}'], stdout=subprocess.PIPE, stderr=sys.stderr) as proc:
+                image_inspect = json.load(proc.stdout)
+            image_labels = image_inspect['Labels']
+        except Exception as ex:
+            print(f'[ERROR] cannot inspect {metadata["source"]}:{tag}', ex, file=sys.stderr)
+            continue
+
+        image_version = {
+            "tag": tag,
+            "testing": semver_tag.prerelease is not None,
+            "labels": image_labels,
+        }
+        print("* Add pinned version", tag, file=sys.stderr)
+        metadata["versions"].append(image_version)
 
     if metadata["versions"]:
         index.append(metadata)
