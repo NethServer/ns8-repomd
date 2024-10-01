@@ -27,7 +27,7 @@ if ! buildah containers --format "{{.ContainerName}}" | grep -q repomd-builder; 
     buildah from --name repomd-builder -v "${PWD}:/usr/src:Z" docker.io/library/python:3.11-alpine
     buildah run repomd-builder sh <<EOF
 python3 -mvenv /opt/pyenv --upgrade-deps
-/opt/pyenv/bin/pip3 install semver==3.0.1 filetype
+/opt/pyenv/bin/pip3 install semver==3.0.1 filetype PyYAML
 apk add skopeo
 EOF
 fi
