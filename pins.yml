@@ -4,4 +4,4 @@
 # to ensure they are always visible to clients, allowing for gradual
 # upgrades between breaking releases.
 core:
-  - 2.9.5 # See #7040 #7047
+  - { tag: 2.9.6, prepend: True } # See #7040 #7047

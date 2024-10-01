@@ -179,7 +179,13 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
         else:
             testing_found = True
 
-    for tag in pins.get(entry_name, []):
+    for opin in pins.get(entry_name, []):
+        if type(opin) is str:
+            tag = opin
+            prepend_pin = False
+        else:
+            tag = opin['tag']
+            prepend_pin = opin['prepend']
         semver_tag = semver.parse_version_info(tag)
         try:
             # Fetch the pinned image labels
@@ -189,14 +195,17 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
         except Exception as ex:
             print(f'[ERROR] cannot inspect {metadata["source"]}:{tag}', ex, file=sys.stderr)
             continue
-
         image_version = {
             "tag": tag,
             "testing": semver_tag.prerelease is not None,
             "labels": image_labels,
         }
-        print("* Add pinned version", tag, file=sys.stderr)
-        metadata["versions"].append(image_version)
+        if prepend_pin:
+            print("* Prepend pinned version", tag, file=sys.stderr)
+            metadata["versions"].insert(0, image_version)
+        else:
+            print("* Append pinned version", tag, file=sys.stderr)
+            metadata["versions"].append(image_version)
 
     if metadata["versions"]:
         index.append(metadata)
