@@ -1,0 +1,20 @@
+{
+  "name": "WebTop",
+  "description": {
+    "en": "WebTop is a full-featured groupware which implements ActiveSync and DAV protocol.",
+    "it": "WebTop è un groupware completo che implementa i protocolli ActiveSync e DAV."
+  },
+  "categories": ["collaboration"],
+  "authors": [
+    {
+      "name": "NethServer team",
+      "email": "nethserver@nethesis.it"
+    }
+  ],
+  "docs": {
+    "documentation_url": "http://www.sonicle.com/webtop-5/",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-webtop"
+  },
+  "source": "ghcr.io/nethserver/webtop"
+}
