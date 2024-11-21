@@ -12,6 +12,7 @@ jobs:
       DO_SPACE_NAME: 'ns8'
       DO_SPACE_REGION: 'ams3'
       CDN_DOMAIN: 'distfeed.nethserver.org'
+      REGISTRY_AUTH_FILE: ./.registryauth.json
     steps:
     - id: checkout
       uses: actions/checkout@v3
@@ -19,6 +20,13 @@ jobs:
     - id: buildmd
       run: |
         bash createrepo.sh
+
+    - name: "Sync registry mirrors"
+      run: |
+        podman login -u nethbot ghcr.io <<<"{{ secrets.REGISTRY_GHCR_IO_TOKEN }}"
+        podman login -u davidep docker.io <<<"{{ secrets.REGISTRY_DOCKER_IO_TOKEN }}"
+        bash syncmirrors.sh <repodata.json
+        podman logout -a
 
     - id: lpublish
       name: "Publish metadata on GitHub"
