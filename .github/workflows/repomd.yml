@@ -20,6 +20,17 @@ jobs:
       run: |
         bash createrepo.sh
 
+    - name: "Sync registry mirrors"
+      if: ${{ github.ref == 'refs/heads/main' }}
+      env:
+        REGISTRY_AUTH_FILE: ./.registryauth.json
+      run: |
+        trap 'rm -vf "${REGISTRY_AUTH_FILE}"' exit
+        podman login -u nethbot ghcr.io <<<"{{ secrets.REGISTRY_GHCR_IO_TOKEN }}"
+        podman login -u nethbot docker.io <<<"{{ secrets.REGISTRY_DOCKER_IO_TOKEN }}"
+        bash syncmirrors.sh <repodata.json
+        podman logout -a
+
     - id: lpublish
       name: "Publish metadata on GitHub"
       if: ${{ github.ref == 'refs/heads/main' }}
