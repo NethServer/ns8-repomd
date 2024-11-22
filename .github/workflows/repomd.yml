@@ -27,7 +27,7 @@ jobs:
       run: |
         trap 'rm -vf "${REGISTRY_AUTH_FILE}"' exit
         podman login -u nethbot ghcr.io <<<"{{ secrets.REGISTRY_GHCR_IO_TOKEN }}"
-        podman login -u davidep docker.io <<<"{{ secrets.REGISTRY_DOCKER_IO_TOKEN }}"
+        podman login -u nethbot docker.io <<<"{{ secrets.REGISTRY_DOCKER_IO_TOKEN }}"
         bash syncmirrors.sh <repodata.json
         podman logout -a
 
