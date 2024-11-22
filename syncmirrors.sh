@@ -18,13 +18,14 @@ if [ ! -f "${REGISTRY_AUTH_FILE:?missing configuration}" ]; then
 fi
 
 jq -r '.[].versions[].labels."org.nethserver.images"' | \
-tr '[:blank:]' $'\n' | \
+tr -s '[:blank:]' $'\n' | \
 sed -En '\|^docker\.io| {s|^docker.io/([^/]+):|docker.io/library/\1:|;p}' | \
 sort | \
 uniq | \
 exec podman run --init --rm -i --entrypoint=[] --volume="${REGISTRY_AUTH_FILE}":/tmp/auth.json:z \
 docker://quay.io/skopeo/stable:latest \
 bash -c ' while read -r image; do
+    [[ -z "${image}" ]] && continue
     # Skip if image already exists
     echo -n "${image}"
     if ! skopeo inspect "docker://ghcr.io/nethserver/${image}" &>/dev/null ; then
