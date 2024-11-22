@@ -24,10 +24,12 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       env:
         REGISTRY_AUTH_FILE: ./.registryauth.json
+        REGISTRY_GHCR_IO_TOKEN: ${{ secrets.REGISTRY_GHCR_IO_TOKEN }}
+        REGISTRY_DOCKER_IO_TOKEN: ${{ secrets.REGISTRY_DOCKER_IO_TOKEN }}
       run: |
         trap 'rm -vf "${REGISTRY_AUTH_FILE}"' exit
-        podman login -u nethbot ghcr.io <<<"{{ secrets.REGISTRY_GHCR_IO_TOKEN }}"
-        podman login -u nethbot docker.io <<<"{{ secrets.REGISTRY_DOCKER_IO_TOKEN }}"
+        podman login --password-stdin -u nethbot ghcr.io <<<"${REGISTRY_GHCR_IO_TOKEN:?}"
+        podman login --password-stdin -u nethbot docker.io <<<"${REGISTRY_DOCKER_IO_TOKEN:?}"
         bash syncmirrors.sh <repodata.json
         podman logout -a
 
