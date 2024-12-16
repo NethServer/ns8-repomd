@@ -5,3 +5,5 @@
 # upgrades between breaking releases.
 core:
   - { tag: 2.9.6, prepend: True } # See #7040 #7047
+mail:
+  - { tag: 1.4.10, prepend: False } # Workaround #7211
