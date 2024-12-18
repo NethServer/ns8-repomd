@@ -1,1 +1,893 @@
-[{"name":"core","description":{"en":"NethServer 8 core"},"logo":null,"screenshots":[],"categories":["core"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"https://nethserver.github.io/ns8-core","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-core"},"source":"ghcr.io/nethserver/core","versions":[{"tag":"2.9.6","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.flags":"core_module","org.nethserver.images":"ghcr.io/nethserver/redis:2.9.6 ghcr.io/nethserver/rsync:2.9.6 ghcr.io/nethserver/restic:2.9.6 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:2.9.6"}},{"tag":"3.3.1","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.flags":"core_module","org.nethserver.images":"ghcr.io/nethserver/redis:3.3.1 ghcr.io/nethserver/rsync:3.3.1 ghcr.io/nethserver/restic:3.3.1 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:3.3.1"}}],"id":"core"},{"name":"CrowdSec","description":{"en":"The collaborative malicious activity detection and remediation ban tool.","it":"Strumento collaborativo per il rilevamento e il blocco di attivit\u00e0 malevole"},"logo":"logo.png","screenshots":["screenshots/screen1.png"],"categories":["security"],"authors":[{"name":"Stephane de Labrusse","email":"stephdl@de-labrusse.fr"}],"docs":{"documentation_url":"https://docs.nethserver.org/projects/ns8/en/latest/crowdsec.html","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-crowdsec"},"source":"ghcr.io/nethserver/crowdsec","versions":[{"tag":"1.0.11","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"","org.nethserver.images":"docker.io/crowdsecurity/crowdsec:v1.6.3-debian ghcr.io/nethserver/crowdsec-firewall-bouncer:1.0.11","org.nethserver.max-per-node":"1","org.nethserver.rootfull":"1","org.nethserver.tcp-ports-demand":"2"}}],"id":"crowdsec"},{"name":"Ejabberd","description":{"en":"ejabberd XMPP server","it":"Server XMPP ejabberd"},"logo":"logo.png","screenshots":["screenshots/screen1.png","screenshots/screen2.png"],"categories":["collaboration"],"authors":[{"name":"Stephane de Labrusse","email":"stephdl@de-labrusse.fr"}],"docs":{"documentation_url":"https://docs.ejabberd.im/","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-ejabberd"},"source":"ghcr.io/nethserver/ejabberd","versions":[{"tag":"1.0.8","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@node:certadm node:fwadm cluster:accountconsumer","org.nethserver.images":"docker.io/ejabberd/ecs:24.07","org.nethserver.max-per-node":"1","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"0"}}],"id":"ejabberd"},{"name":"Imapsync","description":{"en":"Imapsync is an IMAP transfer tool."},"logo":"logo.png","screenshots":["screenshots/screen1.png"],"categories":["collaboration"],"authors":[{"name":"stephane de Labrusse","email":"stephdl@de-labrusse.fr"}],"docs":{"documentation_url":"https://imapsync.lamiral.info/#doc","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-imapsync"},"source":"ghcr.io/nethserver/imapsync","versions":[{"tag":"1.0.4","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"mail@any:mailadm","org.nethserver.images":"ghcr.io/nethserver/imapsync-binary:1.0.4","org.nethserver.rootfull":"0"}}],"id":"imapsync"},{"name":"ldapproxy","description":{"en":"NethServer 8 core"},"logo":null,"screenshots":[],"categories":["core"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"https://nethserver.github.io/ns8-core","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-core"},"source":"ghcr.io/nethserver/ldapproxy","versions":[{"tag":"1.1.0","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:portsadm","org.nethserver.flags":"core_module no_data_backup","org.nethserver.images":"docker.io/library/nginx:1.27.2-alpine","org.nethserver.min-core":"3.2.2","org.nethserver.tcp-ports-demand":"1024"}}],"id":"ldapproxy"},{"name":"loki","description":{"en":"NethServer 8 core"},"logo":null,"screenshots":[],"categories":["core"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"https://nethserver.github.io/ns8-core","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-core"},"source":"ghcr.io/nethserver/loki","versions":[{"tag":"1.2.2","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.flags":"core_module","org.nethserver.images":"docker.io/traefik:v2.11.13 docker.io/grafana/loki:2.9.10","org.nethserver.min-core":"3.2.0-0","org.nethserver.tcp-ports-demand":"1"}}],"id":"loki"},{"name":"Mail","description":{"en":"Manage a complete mail server with ease and security"},"logo":"logo.png","screenshots":[],"categories":["collaboration"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"https://github.com/NethServer/ns8-mail","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-mail"},"source":"ghcr.io/nethserver/mail","versions":[{"tag":"1.5.0","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm traefik@node:fulladm cluster:accountconsumer","org.nethserver.images":"ghcr.io/nethserver/mail-dovecot:1.5.0 ghcr.io/nethserver/mail-postfix:1.5.0 ghcr.io/nethserver/mail-rspamd:1.5.0 ghcr.io/nethserver/mail-clamav:1.5.0 ","org.nethserver.max-per-node":"1","org.nethserver.min-core":"3.3.0-0"}},{"tag":"1.4.10","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm traefik@node:fulladm cluster:accountconsumer","org.nethserver.images":"ghcr.io/nethserver/mail-dovecot:1.4.10 ghcr.io/nethserver/mail-postfix:1.4.10 ghcr.io/nethserver/mail-rspamd:1.4.10 ghcr.io/nethserver/mail-clamav:1.4.10 ","org.nethserver.max-per-node":"1"}}],"id":"mail"},{"name":"Mattermost","description":{"en":"Mattermost is a secure Open Source chat for team collaboration.","it":"Mattermost \u00e8 una chat Open Source sicura per la collaborazione in team."},"logo":"logo.png","screenshots":["screenshots/screen1.png"],"categories":["collaboration"],"authors":[{"name":"de Labrusse St\u00e9phane","email":"stephdl@de-labrusse.fr"}],"docs":{"documentation_url":"https://docs.mattermost.com/","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-mattermost"},"source":"ghcr.io/nethserver/mattermost","versions":[{"tag":"2.1.1","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm traefik@node:routeadm","org.nethserver.images":"docker.io/postgres:13.13-alpine docker.io/mattermost/mattermost-team-edition:9.11.6","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"2","org.nethserver.udp-ports-demand":"1"}}],"id":"mattermost"},{"name":"minio","description":{"en":"MinIO: S3 compatible object storage","it":"MInIO: storage a oggetti compatibile con S3"},"logo":"logo.png","screenshots":["screenshots/screen1.png"],"categories":["storage"],"authors":[{"name":"Giacomo Sanchietti","email":"giacomo.sanchietti@nethserver.org"}],"docs":{"documentation_url":"https://docs.min.io/","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-minio"},"source":"ghcr.io/nethserver/minio","versions":[{"tag":"1.0.3","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@any:routeadm","org.nethserver.images":"quay.io/minio/minio:RELEASE.2023-08-23T10-07-06Z","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"2"}}],"id":"minio"},{"name":"NethVoice Proxy","description":{"en":"NethVoice proxy module"},"logo":"logo.png","screenshots":[],"categories":["communication","system_administration"],"authors":[{"name":"Nethesis","email":"sviluppo@nethesis.it"}],"docs":{"documentation_url":"https://github.com/nethesis/ns8-nethvoice-proxy","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/nethesis/ns8-nethvoice-proxy"},"source":"ghcr.io/nethesis/nethvoice-proxy","versions":[{"tag":"1.1.1-testing.1","testing":true,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm traefik@any:certadm","org.nethserver.images":"ghcr.io/nethesis/nethvoice-proxy-postgres:1.1.1-testing.1     ghcr.io/nethesis/nethvoice-proxy-kamailio:1.1.1-testing.1     ghcr.io/nethesis/nethvoice-proxy-redis:1.1.1-testing.1     ghcr.io/nethesis/nethvoice-proxy-rtpengine:1.1.1-testing.1","org.nethserver.max-per-node":"1","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"2"}},{"tag":"1.1.0","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm traefik@any:certadm","org.nethserver.images":"ghcr.io/nethesis/nethvoice-proxy-postgres:1.1.0     ghcr.io/nethesis/nethvoice-proxy-kamailio:1.1.0     ghcr.io/nethesis/nethvoice-proxy-redis:1.1.0     ghcr.io/nethesis/nethvoice-proxy-rtpengine:1.1.0","org.nethserver.max-per-node":"1","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"2"}}],"id":"nethvoice-proxy"},{"name":"NethVoice","description":{"en":"NethVoice Module","it":"Modulo NethVoice"},"logo":"logo.png","screenshots":[],"categories":["communication"],"authors":[{"name":"Nethesis","email":"sviluppo@nethesis.it"}],"docs":{"documentation_url":"https://github.com/nethesis/ns8-nethvoice","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/nethesis/ns8-nethvoice"},"source":"ghcr.io/nethesis/nethvoice","versions":[{"tag":"1.1.3-testing.1","testing":true,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@any:fulladm node:fwadm nethvoice-proxy@any:routeadm","org.nethserver.images":"ghcr.io/nethesis/nethvoice-mariadb:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-freepbx:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-cti-server:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-cti-ui:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-tancredi:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-janus:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-phonebook:1.1.3-testing.1     docker.io/library/redis:7.0.10-alpine     ghcr.io/nethesis/nethvoice-reports-ui:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-reports-api:1.1.3-testing.1","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"30"}},{"tag":"1.1.2","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@any:fulladm node:fwadm nethvoice-proxy@any:routeadm","org.nethserver.images":"ghcr.io/nethesis/nethvoice-mariadb:1.1.2     ghcr.io/nethesis/nethvoice-freepbx:1.1.2     ghcr.io/nethesis/nethvoice-cti-server:1.1.2     ghcr.io/nethesis/nethvoice-cti-ui:1.1.2     ghcr.io/nethesis/nethvoice-tancredi:1.1.2     ghcr.io/nethesis/nethvoice-janus:1.1.2     ghcr.io/nethesis/nethvoice-phonebook:1.1.2     docker.io/library/redis:7.0.10-alpine     ghcr.io/nethesis/nethvoice-reports-ui:1.1.2     ghcr.io/nethesis/nethvoice-reports-api:1.1.2","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"30"}}],"id":"nethvoice"},{"name":"Nextcloud","description":{"en":"Nextcloud Hub is an integrated Open Source content collaboration platform","it":"Nextcloud Hub \u00e8 una piattaforma integrata Open Source per la collaborazione sui contenuti"},"logo":"logo.png","screenshots":["screenshots/screen1.png","screenshots/screen2.png","screenshots/screen3.png"],"categories":["collaboration"],"authors":[{"name":"Giacomo Sanchietti","email":"giacomo.sanchietti@nethesis.it"}],"docs":{"documentation_url":"https://docs.nethserver.org/projects/ns8/en/latest/nextcloud.html","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-nextcloud"},"source":"ghcr.io/nethserver/nextcloud","versions":[{"tag":"1.2.1","testing":false,"labels":{"io.buildah.version":"1.33.7","org.nethserver.authorizations":"traefik@any:routeadm cluster:accountconsumer","org.nethserver.images":"docker.io/redis:6.2.12-alpine docker.io/mariadb:10.6.20 docker.io/nginx:1.27.3-alpine ghcr.io/nethserver/nextcloud-app:1.2.1","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"1"}}],"id":"nextcloud","upstream_name":"Nextcloud 28 Hub 7"},{"name":"openldap","description":{"en":"NethServer 8 core account provider module"},"logo":"logo.png","screenshots":[],"categories":["core"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"https://nethserver.github.io/ns8-core","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-openldap"},"source":"ghcr.io/nethserver/openldap","versions":[{"tag":"2.2.7-dev.1","testing":true,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm","org.nethserver.flags":"core_module account_provider","org.nethserver.images":"ghcr.io/nethserver/openldap-server:2.2.7-dev.1","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"2"}},{"tag":"2.2.6","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm","org.nethserver.flags":"core_module account_provider","org.nethserver.images":"ghcr.io/nethserver/openldap-server:2.2.6","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"2"}}],"id":"openldap"},{"name":"Roundcubemail","description":{"en":"The Roundcube Webmail suite","it":"Webmail suite Roundcube"},"logo":"logo.png","screenshots":["screenshots/screen1.png"],"categories":["collaboration"],"authors":[{"name":"Stephane de Labrusse","email":"stephdl@de-labrusse.fr"}],"docs":{"documentation_url":"https://docs.roundcube.net/doc/help/1.1/en_US/","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-roundcubemail"},"source":"ghcr.io/nethserver/roundcubemail","versions":[{"tag":"2.0.5","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@node:routeadm mail@any:mailadm cluster:accountconsumer","org.nethserver.images":"docker.io/mariadb:10.11.9 docker.io/roundcube/roundcubemail:1.6.9-apache","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"1"}}],"id":"roundcubemail"},{"name":"samba","description":{"en":"NethServer 8 core account provider module"},"logo":"logo.png","screenshots":[],"categories":["core"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"https://nethserver.github.io/ns8-core","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-samba"},"source":"ghcr.io/nethserver/samba","versions":[{"tag":"2.3.1-dev.1","testing":true,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm","org.nethserver.flags":"core_module account_provider","org.nethserver.images":"ghcr.io/nethserver/samba-dc:2.3.1-dev.1","org.nethserver.max-per-node":"1","org.nethserver.min-core":"3.3.0-0","org.nethserver.tcp-ports-demand":"1"}},{"tag":"2.3.0","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm","org.nethserver.flags":"core_module account_provider","org.nethserver.images":"ghcr.io/nethserver/samba-dc:2.3.0","org.nethserver.max-per-node":"1","org.nethserver.min-core":"3.3.0-0","org.nethserver.tcp-ports-demand":"1"}}],"id":"samba"},{"name":"traefik","description":{"en":"NethServer 8 core"},"logo":null,"screenshots":[],"categories":["core"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"https://nethserver.github.io/ns8-core","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-core"},"source":"ghcr.io/nethserver/traefik","versions":[{"tag":"2.2.5","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.flags":"core_module","org.nethserver.images":"docker.io/traefik:v2.11.5"}}],"id":"traefik"},{"name":"WebTop","description":{"en":"WebTop is a full-featured groupware which implements ActiveSync and DAV protocol.","it":"WebTop \u00e8 un groupware completo che implementa i protocolli ActiveSync e DAV."},"logo":"logo.png","screenshots":[],"categories":["collaboration"],"authors":[{"name":"NethServer team","email":"nethserver@nethesis.it"}],"docs":{"documentation_url":"http://www.sonicle.com/webtop-5/","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-webtop"},"source":"ghcr.io/nethserver/webtop","versions":[{"tag":"1.1.2","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@node:routeadm mail@any:mailadm cluster:accountconsumer","org.nethserver.images":"ghcr.io/nethserver/webtop-webapp:1.1.2     ghcr.io/nethserver/webtop-postgres:1.1.2     ghcr.io/nethserver/webtop-apache:1.1.2     ghcr.io/nethserver/webtop-webdav:1.1.2     ghcr.io/nethserver/webtop-z-push:1.1.2","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"1"}}],"id":"webtop"},{"name":"Nethsecurity Controller","description":{"en":"Centralized NethSecurity firewall manager","it":"Gestore centralizzato di firewall NethSecurity"},"logo":"logo.png","screenshots":["screenshots/screen1.png","screenshots/screen2.png","screenshots/screen3.png","screenshots/screen4.png","screenshots/screen5.png"],"categories":["security"],"authors":[{"name":"Nethesis dev team","email":"sviluppo@nethesis.it"}],"docs":{"documentation_url":"https://docs.nethsecurity.org/","bug_url":"https://github.com/NethServer/nethsecurity/issues","code_url":"https://github.com/NethServer/ns8-nethsecurity-controller"},"source":"ghcr.io/nethserver/nethsecurity-controller","versions":[{"tag":"1.2.2-dev.1","testing":true,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@any:routeadm node:tunadm,portsadm","org.nethserver.images":"ghcr.io/nethserver/nethsecurity-vpn:1.3.2 ghcr.io/nethserver/nethsecurity-api:1.3.2 ghcr.io/nethserver/nethsecurity-ui:1.3.2 ghcr.io/nethserver/nethsecurity-proxy:1.3.2 docker.io/grafana/promtail:2.7.1 docker.io/grafana/loki:2.9.4 docker.io/prom/prometheus:v2.50.1 docker.io/grafana/grafana:11.2.0 ghcr.io/nethserver/webssh:1.2.2-dev.1 docker.io/timescale/timescaledb:2.16.1-pg16","org.nethserver.min-core":"3.1.0","org.nethserver.tcp-ports-demand":"11"}},{"tag":"1.2.1","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@any:routeadm node:tunadm,portsadm","org.nethserver.images":"ghcr.io/nethserver/nethsecurity-vpn:1.3.2 ghcr.io/nethserver/nethsecurity-api:1.3.2 ghcr.io/nethserver/nethsecurity-ui:1.3.2 ghcr.io/nethserver/nethsecurity-proxy:1.3.2 docker.io/grafana/promtail:2.7.1 docker.io/grafana/loki:2.9.4 docker.io/prom/prometheus:v2.50.1 docker.io/grafana/grafana:11.2.0 ghcr.io/nethserver/webssh:1.2.1 docker.io/timescale/timescaledb:2.16.1-pg16","org.nethserver.min-core":"3.1.0","org.nethserver.tcp-ports-demand":"11"}}],"id":"nethsecurity-controller"},{"name":"DNSMasq","description":{"en":"Lightweight DNS and DHCP server for the local network","it":"Un server DNS e DHCP leggero per la rete locale"},"logo":"logo.png","screenshots":[],"categories":["system_administration"],"authors":[{"name":"Tommaso Bailetti","email":"tommaso@nethesis.it"}],"docs":{"documentation_url":"https://docs.nethserver.org/projects/ns8/en/latest/dnsmasq.html","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-dnsmasq"},"source":"ghcr.io/nethserver/dnsmasq","versions":[{"tag":"1.1.0","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm","org.nethserver.images":"ghcr.io/nethserver/dnsmasq-server:1.1.0","org.nethserver.max-per-node":"1","org.nethserver.rootfull":"1"}}],"id":"dnsmasq"},{"name":"Netdata","description":{"en":"Collects and displays the local system metrics","it":"Raccoglie e mostra le metriche del sistema locale"},"logo":"logo.png","screenshots":["screenshots/screen1.png"],"categories":["monitoring"],"authors":[{"name":"St\u00e9phane de Labrusse","email":"stephdl@de-labrusse.fr"}],"docs":{"documentation_url":"https://docs.nethserver.org/projects/ns8/en/latest/netdata.html","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-netdata"},"source":"ghcr.io/nethserver/netdata","versions":[{"tag":"1.1.2","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"traefik@node:routeadm","org.nethserver.flags":"no_data_backup","org.nethserver.images":"docker.io/netdata/netdata:v1.47.5","org.nethserver.max-per-node":"1","org.nethserver.rootfull":"1","org.nethserver.tcp-ports-demand":"1"}}],"id":"netdata"},{"name":"Piler","description":{"en":"Email archiving solution"},"logo":"logo.png","screenshots":["screenshots/screen1.png","screenshots/screen2.png"],"categories":["collaboration"],"authors":[{"name":"Stephane de Labrusse","email":"stephdl@de-labrusse.fr"}],"docs":{"documentation_url":"https://docs.nethserver.org/projects/ns8/en/latest/piler.html","bug_url":"https://github.com/NethServer/dev","code_url":"https://github.com/NethServer/ns8-piler"},"source":"ghcr.io/nethserver/piler","versions":[{"tag":"1.0.0","testing":false,"labels":{"io.buildah.version":"1.23.1","org.nethserver.authorizations":"node:fwadm traefik@node:routeadm mail@any:mailadm","org.nethserver.images":"docker.io/sutoj/piler:1.4.4 docker.io/mariadb:10.11.7 docker.io/memcached:1.6.26-alpine","org.nethserver.rootfull":"0","org.nethserver.tcp-ports-demand":"2"}}],"id":"piler"}]
+[
+    {
+        "name": "core",
+        "description": {
+            "en": "NethServer 8 core"
+        },
+        "logo": null,
+        "screenshots": [],
+        "categories": [
+            "core"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://nethserver.github.io/ns8-core",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-core"
+        },
+        "source": "ghcr.io/nethserver/core",
+        "versions": [
+            {
+                "tag": "2.9.6",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module",
+                    "org.nethserver.images": "ghcr.io/nethserver/redis:2.9.6 ghcr.io/nethserver/rsync:2.9.6 ghcr.io/nethserver/restic:2.9.6 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:2.9.6"
+                }
+            },
+            {
+                "tag": "3.3.1",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module",
+                    "org.nethserver.images": "ghcr.io/nethserver/redis:3.3.1 ghcr.io/nethserver/rsync:3.3.1 ghcr.io/nethserver/restic:3.3.1 docker.io/grafana/promtail:2.9.2 ghcr.io/nethserver/support:3.3.1"
+                }
+            }
+        ],
+        "id": "core"
+    },
+    {
+        "name": "CrowdSec",
+        "description": {
+            "en": "The collaborative malicious activity detection and remediation ban tool.",
+            "it": "Strumento collaborativo per il rilevamento e il blocco di attivit\u00e0 malevole"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png"
+        ],
+        "categories": [
+            "security"
+        ],
+        "authors": [
+            {
+                "name": "Stephane de Labrusse",
+                "email": "stephdl@de-labrusse.fr"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/crowdsec.html",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-crowdsec"
+        },
+        "source": "ghcr.io/nethserver/crowdsec",
+        "versions": [
+            {
+                "tag": "1.0.11",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "",
+                    "org.nethserver.images": "docker.io/crowdsecurity/crowdsec:v1.6.3-debian ghcr.io/nethserver/crowdsec-firewall-bouncer:1.0.11",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.rootfull": "1",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            }
+        ],
+        "id": "crowdsec"
+    },
+    {
+        "name": "Ejabberd",
+        "description": {
+            "en": "ejabberd XMPP server",
+            "it": "Server XMPP ejabberd"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png",
+            "screenshots/screen2.png"
+        ],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "Stephane de Labrusse",
+                "email": "stephdl@de-labrusse.fr"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.ejabberd.im/",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-ejabberd"
+        },
+        "source": "ghcr.io/nethserver/ejabberd",
+        "versions": [
+            {
+                "tag": "1.0.8",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@node:certadm node:fwadm cluster:accountconsumer",
+                    "org.nethserver.images": "docker.io/ejabberd/ecs:24.07",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "0"
+                }
+            }
+        ],
+        "id": "ejabberd"
+    },
+    {
+        "name": "Imapsync",
+        "description": {
+            "en": "Imapsync is an IMAP transfer tool."
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png"
+        ],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "stephane de Labrusse",
+                "email": "stephdl@de-labrusse.fr"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://imapsync.lamiral.info/#doc",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-imapsync"
+        },
+        "source": "ghcr.io/nethserver/imapsync",
+        "versions": [
+            {
+                "tag": "1.0.4",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "mail@any:mailadm",
+                    "org.nethserver.images": "ghcr.io/nethserver/imapsync-binary:1.0.4",
+                    "org.nethserver.rootfull": "0"
+                }
+            }
+        ],
+        "id": "imapsync"
+    },
+    {
+        "name": "ldapproxy",
+        "description": {
+            "en": "NethServer 8 core"
+        },
+        "logo": null,
+        "screenshots": [],
+        "categories": [
+            "core"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://nethserver.github.io/ns8-core",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-core"
+        },
+        "source": "ghcr.io/nethserver/ldapproxy",
+        "versions": [
+            {
+                "tag": "1.1.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:portsadm",
+                    "org.nethserver.flags": "core_module no_data_backup",
+                    "org.nethserver.images": "docker.io/library/nginx:1.27.2-alpine",
+                    "org.nethserver.min-core": "3.2.2",
+                    "org.nethserver.tcp-ports-demand": "1024"
+                }
+            }
+        ],
+        "id": "ldapproxy"
+    },
+    {
+        "name": "loki",
+        "description": {
+            "en": "NethServer 8 core"
+        },
+        "logo": null,
+        "screenshots": [],
+        "categories": [
+            "core"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://nethserver.github.io/ns8-core",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-core"
+        },
+        "source": "ghcr.io/nethserver/loki",
+        "versions": [
+            {
+                "tag": "1.2.2",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module",
+                    "org.nethserver.images": "docker.io/traefik:v2.11.13 docker.io/grafana/loki:2.9.10",
+                    "org.nethserver.min-core": "3.2.0-0",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            }
+        ],
+        "id": "loki"
+    },
+    {
+        "name": "Mail",
+        "description": {
+            "en": "Manage a complete mail server with ease and security"
+        },
+        "logo": "logo.png",
+        "screenshots": [],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://github.com/NethServer/ns8-mail",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-mail"
+        },
+        "source": "ghcr.io/nethserver/mail",
+        "versions": [
+            {
+                "tag": "1.5.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm traefik@node:fulladm cluster:accountconsumer",
+                    "org.nethserver.images": "ghcr.io/nethserver/mail-dovecot:1.5.0 ghcr.io/nethserver/mail-postfix:1.5.0 ghcr.io/nethserver/mail-rspamd:1.5.0 ghcr.io/nethserver/mail-clamav:1.5.0 ",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.min-core": "5.0.0-0"
+                }
+            }
+        ],
+        "id": "mail"
+    },
+    {
+        "name": "Mattermost",
+        "description": {
+            "en": "Mattermost is a secure Open Source chat for team collaboration.",
+            "it": "Mattermost \u00e8 una chat Open Source sicura per la collaborazione in team."
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png"
+        ],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "de Labrusse St\u00e9phane",
+                "email": "stephdl@de-labrusse.fr"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.mattermost.com/",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-mattermost"
+        },
+        "source": "ghcr.io/nethserver/mattermost",
+        "versions": [
+            {
+                "tag": "2.1.1",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm traefik@node:routeadm",
+                    "org.nethserver.images": "docker.io/postgres:13.13-alpine docker.io/mattermost/mattermost-team-edition:9.11.6",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2",
+                    "org.nethserver.udp-ports-demand": "1"
+                }
+            }
+        ],
+        "id": "mattermost"
+    },
+    {
+        "name": "minio",
+        "description": {
+            "en": "MinIO: S3 compatible object storage",
+            "it": "MInIO: storage a oggetti compatibile con S3"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png"
+        ],
+        "categories": [
+            "storage"
+        ],
+        "authors": [
+            {
+                "name": "Giacomo Sanchietti",
+                "email": "giacomo.sanchietti@nethserver.org"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.min.io/",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-minio"
+        },
+        "source": "ghcr.io/nethserver/minio",
+        "versions": [
+            {
+                "tag": "1.0.3",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@any:routeadm",
+                    "org.nethserver.images": "quay.io/minio/minio:RELEASE.2023-08-23T10-07-06Z",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            }
+        ],
+        "id": "minio"
+    },
+    {
+        "name": "NethVoice Proxy",
+        "description": {
+            "en": "NethVoice proxy module"
+        },
+        "logo": "logo.png",
+        "screenshots": [],
+        "categories": [
+            "communication",
+            "system_administration"
+        ],
+        "authors": [
+            {
+                "name": "Nethesis",
+                "email": "sviluppo@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://github.com/nethesis/ns8-nethvoice-proxy",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/nethesis/ns8-nethvoice-proxy"
+        },
+        "source": "ghcr.io/nethesis/nethvoice-proxy",
+        "versions": [
+            {
+                "tag": "1.1.1-testing.1",
+                "testing": true,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm traefik@any:certadm",
+                    "org.nethserver.images": "ghcr.io/nethesis/nethvoice-proxy-postgres:1.1.1-testing.1     ghcr.io/nethesis/nethvoice-proxy-kamailio:1.1.1-testing.1     ghcr.io/nethesis/nethvoice-proxy-redis:1.1.1-testing.1     ghcr.io/nethesis/nethvoice-proxy-rtpengine:1.1.1-testing.1",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            },
+            {
+                "tag": "1.1.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm traefik@any:certadm",
+                    "org.nethserver.images": "ghcr.io/nethesis/nethvoice-proxy-postgres:1.1.0     ghcr.io/nethesis/nethvoice-proxy-kamailio:1.1.0     ghcr.io/nethesis/nethvoice-proxy-redis:1.1.0     ghcr.io/nethesis/nethvoice-proxy-rtpengine:1.1.0",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            }
+        ],
+        "id": "nethvoice-proxy"
+    },
+    {
+        "name": "NethVoice",
+        "description": {
+            "en": "NethVoice Module",
+            "it": "Modulo NethVoice"
+        },
+        "logo": "logo.png",
+        "screenshots": [],
+        "categories": [
+            "communication"
+        ],
+        "authors": [
+            {
+                "name": "Nethesis",
+                "email": "sviluppo@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://github.com/nethesis/ns8-nethvoice",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/nethesis/ns8-nethvoice"
+        },
+        "source": "ghcr.io/nethesis/nethvoice",
+        "versions": [
+            {
+                "tag": "1.1.3-testing.1",
+                "testing": true,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@any:fulladm node:fwadm nethvoice-proxy@any:routeadm",
+                    "org.nethserver.images": "ghcr.io/nethesis/nethvoice-mariadb:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-freepbx:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-cti-server:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-cti-ui:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-tancredi:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-janus:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-phonebook:1.1.3-testing.1     docker.io/library/redis:7.0.10-alpine     ghcr.io/nethesis/nethvoice-reports-ui:1.1.3-testing.1     ghcr.io/nethesis/nethvoice-reports-api:1.1.3-testing.1",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "30"
+                }
+            },
+            {
+                "tag": "1.1.2",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@any:fulladm node:fwadm nethvoice-proxy@any:routeadm",
+                    "org.nethserver.images": "ghcr.io/nethesis/nethvoice-mariadb:1.1.2     ghcr.io/nethesis/nethvoice-freepbx:1.1.2     ghcr.io/nethesis/nethvoice-cti-server:1.1.2     ghcr.io/nethesis/nethvoice-cti-ui:1.1.2     ghcr.io/nethesis/nethvoice-tancredi:1.1.2     ghcr.io/nethesis/nethvoice-janus:1.1.2     ghcr.io/nethesis/nethvoice-phonebook:1.1.2     docker.io/library/redis:7.0.10-alpine     ghcr.io/nethesis/nethvoice-reports-ui:1.1.2     ghcr.io/nethesis/nethvoice-reports-api:1.1.2",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "30"
+                }
+            }
+        ],
+        "id": "nethvoice"
+    },
+    {
+        "name": "Nextcloud",
+        "description": {
+            "en": "Nextcloud Hub is an integrated Open Source content collaboration platform",
+            "it": "Nextcloud Hub \u00e8 una piattaforma integrata Open Source per la collaborazione sui contenuti"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png",
+            "screenshots/screen2.png",
+            "screenshots/screen3.png"
+        ],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "Giacomo Sanchietti",
+                "email": "giacomo.sanchietti@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/nextcloud.html",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-nextcloud"
+        },
+        "source": "ghcr.io/nethserver/nextcloud",
+        "versions": [
+            {
+                "tag": "1.2.1",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.33.7",
+                    "org.nethserver.authorizations": "traefik@any:routeadm cluster:accountconsumer",
+                    "org.nethserver.images": "docker.io/redis:6.2.12-alpine docker.io/mariadb:10.6.20 docker.io/nginx:1.27.3-alpine ghcr.io/nethserver/nextcloud-app:1.2.1",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            }
+        ],
+        "id": "nextcloud",
+        "upstream_name": "Nextcloud 28 Hub 7"
+    },
+    {
+        "name": "openldap",
+        "description": {
+            "en": "NethServer 8 core account provider module"
+        },
+        "logo": "logo.png",
+        "screenshots": [],
+        "categories": [
+            "core"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://nethserver.github.io/ns8-core",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-openldap"
+        },
+        "source": "ghcr.io/nethserver/openldap",
+        "versions": [
+            {
+                "tag": "2.2.7-dev.1",
+                "testing": true,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm",
+                    "org.nethserver.flags": "core_module account_provider",
+                    "org.nethserver.images": "ghcr.io/nethserver/openldap-server:2.2.7-dev.1",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            },
+            {
+                "tag": "2.2.6",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm",
+                    "org.nethserver.flags": "core_module account_provider",
+                    "org.nethserver.images": "ghcr.io/nethserver/openldap-server:2.2.6",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            }
+        ],
+        "id": "openldap"
+    },
+    {
+        "name": "Roundcubemail",
+        "description": {
+            "en": "The Roundcube Webmail suite",
+            "it": "Webmail suite Roundcube"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png"
+        ],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "Stephane de Labrusse",
+                "email": "stephdl@de-labrusse.fr"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.roundcube.net/doc/help/1.1/en_US/",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-roundcubemail"
+        },
+        "source": "ghcr.io/nethserver/roundcubemail",
+        "versions": [
+            {
+                "tag": "2.0.5",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@node:routeadm mail@any:mailadm cluster:accountconsumer",
+                    "org.nethserver.images": "docker.io/mariadb:10.11.9 docker.io/roundcube/roundcubemail:1.6.9-apache",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            }
+        ],
+        "id": "roundcubemail"
+    },
+    {
+        "name": "samba",
+        "description": {
+            "en": "NethServer 8 core account provider module"
+        },
+        "logo": "logo.png",
+        "screenshots": [],
+        "categories": [
+            "core"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://nethserver.github.io/ns8-core",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-samba"
+        },
+        "source": "ghcr.io/nethserver/samba",
+        "versions": [
+            {
+                "tag": "2.3.1-dev.1",
+                "testing": true,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm",
+                    "org.nethserver.flags": "core_module account_provider",
+                    "org.nethserver.images": "ghcr.io/nethserver/samba-dc:2.3.1-dev.1",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.min-core": "3.3.0-0",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            },
+            {
+                "tag": "2.3.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm ldapproxy@node:accountprovider cluster:accountprovider traefik@node:routeadm",
+                    "org.nethserver.flags": "core_module account_provider",
+                    "org.nethserver.images": "ghcr.io/nethserver/samba-dc:2.3.0",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.min-core": "3.3.0-0",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            }
+        ],
+        "id": "samba"
+    },
+    {
+        "name": "traefik",
+        "description": {
+            "en": "NethServer 8 core"
+        },
+        "logo": null,
+        "screenshots": [],
+        "categories": [
+            "core"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://nethserver.github.io/ns8-core",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-core"
+        },
+        "source": "ghcr.io/nethserver/traefik",
+        "versions": [
+            {
+                "tag": "2.2.5",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.flags": "core_module",
+                    "org.nethserver.images": "docker.io/traefik:v2.11.5"
+                }
+            }
+        ],
+        "id": "traefik"
+    },
+    {
+        "name": "WebTop",
+        "description": {
+            "en": "WebTop is a full-featured groupware which implements ActiveSync and DAV protocol.",
+            "it": "WebTop \u00e8 un groupware completo che implementa i protocolli ActiveSync e DAV."
+        },
+        "logo": "logo.png",
+        "screenshots": [],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "NethServer team",
+                "email": "nethserver@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "http://www.sonicle.com/webtop-5/",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-webtop"
+        },
+        "source": "ghcr.io/nethserver/webtop",
+        "versions": [
+            {
+                "tag": "1.1.2",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@node:routeadm mail@any:mailadm cluster:accountconsumer",
+                    "org.nethserver.images": "ghcr.io/nethserver/webtop-webapp:1.1.2     ghcr.io/nethserver/webtop-postgres:1.1.2     ghcr.io/nethserver/webtop-apache:1.1.2     ghcr.io/nethserver/webtop-webdav:1.1.2     ghcr.io/nethserver/webtop-z-push:1.1.2",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            }
+        ],
+        "id": "webtop"
+    },
+    {
+        "name": "Nethsecurity Controller",
+        "description": {
+            "en": "Centralized NethSecurity firewall manager",
+            "it": "Gestore centralizzato di firewall NethSecurity"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png",
+            "screenshots/screen2.png",
+            "screenshots/screen3.png",
+            "screenshots/screen4.png",
+            "screenshots/screen5.png"
+        ],
+        "categories": [
+            "security"
+        ],
+        "authors": [
+            {
+                "name": "Nethesis dev team",
+                "email": "sviluppo@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.nethsecurity.org/",
+            "bug_url": "https://github.com/NethServer/nethsecurity/issues",
+            "code_url": "https://github.com/NethServer/ns8-nethsecurity-controller"
+        },
+        "source": "ghcr.io/nethserver/nethsecurity-controller",
+        "versions": [
+            {
+                "tag": "1.2.2-dev.1",
+                "testing": true,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@any:routeadm node:tunadm,portsadm",
+                    "org.nethserver.images": "ghcr.io/nethserver/nethsecurity-vpn:1.3.2 ghcr.io/nethserver/nethsecurity-api:1.3.2 ghcr.io/nethserver/nethsecurity-ui:1.3.2 ghcr.io/nethserver/nethsecurity-proxy:1.3.2 docker.io/grafana/promtail:2.7.1 docker.io/grafana/loki:2.9.4 docker.io/prom/prometheus:v2.50.1 docker.io/grafana/grafana:11.2.0 ghcr.io/nethserver/webssh:1.2.2-dev.1 docker.io/timescale/timescaledb:2.16.1-pg16",
+                    "org.nethserver.min-core": "3.1.0",
+                    "org.nethserver.tcp-ports-demand": "11"
+                }
+            },
+            {
+                "tag": "1.2.1",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@any:routeadm node:tunadm,portsadm",
+                    "org.nethserver.images": "ghcr.io/nethserver/nethsecurity-vpn:1.3.2 ghcr.io/nethserver/nethsecurity-api:1.3.2 ghcr.io/nethserver/nethsecurity-ui:1.3.2 ghcr.io/nethserver/nethsecurity-proxy:1.3.2 docker.io/grafana/promtail:2.7.1 docker.io/grafana/loki:2.9.4 docker.io/prom/prometheus:v2.50.1 docker.io/grafana/grafana:11.2.0 ghcr.io/nethserver/webssh:1.2.1 docker.io/timescale/timescaledb:2.16.1-pg16",
+                    "org.nethserver.min-core": "3.1.0",
+                    "org.nethserver.tcp-ports-demand": "11"
+                }
+            }
+        ],
+        "id": "nethsecurity-controller"
+    },
+    {
+        "name": "DNSMasq",
+        "description": {
+            "en": "Lightweight DNS and DHCP server for the local network",
+            "it": "Un server DNS e DHCP leggero per la rete locale"
+        },
+        "logo": "logo.png",
+        "screenshots": [],
+        "categories": [
+            "system_administration"
+        ],
+        "authors": [
+            {
+                "name": "Tommaso Bailetti",
+                "email": "tommaso@nethesis.it"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/dnsmasq.html",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-dnsmasq"
+        },
+        "source": "ghcr.io/nethserver/dnsmasq",
+        "versions": [
+            {
+                "tag": "1.1.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm",
+                    "org.nethserver.images": "ghcr.io/nethserver/dnsmasq-server:1.1.0",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.rootfull": "1"
+                }
+            }
+        ],
+        "id": "dnsmasq"
+    },
+    {
+        "name": "Netdata",
+        "description": {
+            "en": "Collects and displays the local system metrics",
+            "it": "Raccoglie e mostra le metriche del sistema locale"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png"
+        ],
+        "categories": [
+            "monitoring"
+        ],
+        "authors": [
+            {
+                "name": "St\u00e9phane de Labrusse",
+                "email": "stephdl@de-labrusse.fr"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/netdata.html",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-netdata"
+        },
+        "source": "ghcr.io/nethserver/netdata",
+        "versions": [
+            {
+                "tag": "1.1.2",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "traefik@node:routeadm",
+                    "org.nethserver.flags": "no_data_backup",
+                    "org.nethserver.images": "docker.io/netdata/netdata:v1.47.5",
+                    "org.nethserver.max-per-node": "1",
+                    "org.nethserver.rootfull": "1",
+                    "org.nethserver.tcp-ports-demand": "1"
+                }
+            }
+        ],
+        "id": "netdata"
+    },
+    {
+        "name": "Piler",
+        "description": {
+            "en": "Email archiving solution"
+        },
+        "logo": "logo.png",
+        "screenshots": [
+            "screenshots/screen1.png",
+            "screenshots/screen2.png"
+        ],
+        "categories": [
+            "collaboration"
+        ],
+        "authors": [
+            {
+                "name": "Stephane de Labrusse",
+                "email": "stephdl@de-labrusse.fr"
+            }
+        ],
+        "docs": {
+            "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/piler.html",
+            "bug_url": "https://github.com/NethServer/dev",
+            "code_url": "https://github.com/NethServer/ns8-piler"
+        },
+        "source": "ghcr.io/nethserver/piler",
+        "versions": [
+            {
+                "tag": "1.0.0",
+                "testing": false,
+                "labels": {
+                    "io.buildah.version": "1.23.1",
+                    "org.nethserver.authorizations": "node:fwadm traefik@node:routeadm mail@any:mailadm",
+                    "org.nethserver.images": "docker.io/sutoj/piler:1.4.4 docker.io/mariadb:10.11.7 docker.io/memcached:1.6.26-alpine",
+                    "org.nethserver.rootfull": "0",
+                    "org.nethserver.tcp-ports-demand": "2"
+                }
+            }
+        ],
+        "id": "piler"
+    }
+]
