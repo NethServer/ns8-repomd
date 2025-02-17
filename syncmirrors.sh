@@ -22,16 +22,31 @@ tr -s '[:blank:]' $'\n' | \
 sed -En '\|^docker\.io| {s|^docker.io/([^/]+):|docker.io/library/\1:|;p}' | \
 sort | \
 uniq | \
-exec podman run --init --rm -i --entrypoint=[] --volume="${REGISTRY_AUTH_FILE}":/tmp/auth.json:z \
+podman run --init --rm -i --entrypoint=[] --volume="${REGISTRY_AUTH_FILE}":/tmp/auth.json:z \
 docker://quay.io/skopeo/stable:latest \
-bash -c ' while read -r image; do
+bash -c '
+declare -a failed_uploads
+while read -r image; do
     [[ -z "${image}" ]] && continue
     # Skip if image already exists
-    echo -n "${image}"
+    echo -n "${image}" 1>&2
     if ! skopeo inspect "docker://ghcr.io/nethserver/${image}" &>/dev/null ; then
-        echo " uploading..."
-        skopeo copy "docker://${image}" "docker://ghcr.io/nethserver/${image}"
+        echo " uploading..." 1>&2
+        skopeo copy "docker://${image}" "docker://ghcr.io/nethserver/${image}" 1>&2 || {
+            failed_uploads+=("${image}")
+        }
     else
-        echo " found."
+        echo " found." 1>&2
     fi
-done'
+done
+if [[ ${#failed_uploads[@]} -gt 0 ]]; then
+    echo "ERROR: skopeo copy failed ${#failed_uploads[@]} time(s)" 1>&2
+    printf "\n### Sync registry mirrors failed\n\n"
+    printf "Check the package settings of the following ghcr.io/nethserver items:\n\n"
+    printf "* %s\n" "${failed_uploads[@]}"
+    printf "\nGrant them write access for repository ns8-repomd.\n"
+    exit 1
+else
+    printf "\n### Uploads ok\n\n"
+fi
+'
