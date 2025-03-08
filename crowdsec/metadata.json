@@ -1,0 +1,20 @@
+{
+  "name": "CrowdSec",
+  "description": {
+    "en": "The collaborative malicious activity detection and remediation ban tool.",
+    "it": "Strumento collaborativo per il rilevamento e il blocco di attività malevole"
+  },
+  "categories": ["security"],
+  "authors": [
+    {
+      "name": "Stephane de Labrusse",
+      "email": "stephdl@de-labrusse.fr"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/crowdsec.html",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-crowdsec"
+  },
+  "source": "ghcr.io/nethserver/crowdsec"
+}
