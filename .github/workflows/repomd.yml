@@ -28,6 +28,7 @@ jobs:
         REGISTRY_AUTH_FILE: ./.registryauth.json
         REGISTRY_GHCR_IO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         REGISTRY_DOCKER_IO_TOKEN: ${{ secrets.REGISTRY_DOCKER_IO_TOKEN }}
+      shell: bash
       run: |
         trap 'rm -vf "${REGISTRY_AUTH_FILE}"' exit
         podman login --password-stdin -u nethbot ghcr.io <<<"${REGISTRY_GHCR_IO_TOKEN:?}"
