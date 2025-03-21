@@ -11,3 +11,6 @@ mail:
 nextcloud:
   - { tag: 1.2.1, prepend: False } # from NC27 to NC28 #7225
   - { tag: 1.3.0, prepend: False } # from NC28 to NC29 #7347
+mattermost:
+  - { tag: 2.1.1, prepend: False } # from MM 8.1 to MM 9.11 #7245
+
