@@ -15,3 +15,5 @@ mattermost:
   - { tag: 2.1.1, prepend: False } # from MM 8.1 to MM 9.11 #7245
 nethvoice-proxy:
   - { tag: 1.2.0, prepend: False } # for core <3.6 #7350
+nethvoice:
+  - { tag: 1.2.1, prepend: False } # for core <3.6 #7350
