@@ -1,0 +1,20 @@
+{
+  "name": "Mattermost",
+  "description": {
+    "en": "Mattermost is a secure Open Source chat for team collaboration.",
+    "it": "Mattermost è una chat Open Source sicura per la collaborazione in team."
+  },
+  "categories": ["collaboration"],
+  "authors": [
+    {
+      "name": "de Labrusse Stéphane",
+      "email": "stephdl@de-labrusse.fr"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.mattermost.com/",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-mattermost"
+  },
+  "source": "ghcr.io/nethserver/mattermost"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Imapsync",
+  "description": {
+    "en": "Imapsync is an IMAP transfer tool."
+  },
+  "categories": ["collaboration"],
+  "authors": [
+    {
+      "name": "stephane de Labrusse",
+      "email": "stephdl@de-labrusse.fr"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://imapsync.lamiral.info/#doc",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-imapsync"
+  },
+  "source": "ghcr.io/nethserver/imapsync"
+}

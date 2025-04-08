@@ -1,0 +1,19 @@
+{
+  "name": "Piler",
+  "description": {
+    "en": "Email archiving solution"
+  },
+  "categories": ["collaboration"],
+  "authors": [
+    {
+      "name": "Stephane de Labrusse",
+      "email": "stephdl@de-labrusse.fr"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/piler.html",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-piler"
+  },
+  "source": "ghcr.io/nethserver/piler"
+}
