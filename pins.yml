@@ -17,3 +17,6 @@ nethvoice-proxy:
   - { tag: 1.2.0, prepend: False } # for core <3.6 #7350
 nethvoice:
   - { tag: 1.2.1, prepend: False } # for core <3.6 #7350
+samba:
+  - { tag: 2.5.0, prepend: False } # for core <3.9 #7384
+
