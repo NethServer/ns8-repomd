@@ -44,6 +44,15 @@ except Exception as ex:
     print("[WARNING] while parsing pins.yml:", ex, file=sys.stderr)
     pins = {}
 
+def pins_match_remove(entry_name, semver_tag):
+    global pins
+    if entry_name in pins:
+        for opin in pins[entry_name]:
+            if opin.get('remove') == True and opin.get('match'):
+                if semver_tag.match(opin['match']):
+                    return True
+    return False
+
 def is_pngfile(file_path):
     kind = filetype.guess(file_path)
     if kind is None:
@@ -156,6 +165,11 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
             # skip older testing releases, we do not need them
             continue
 
+        # Ignore tags that match remove-pins:
+        if pins_match_remove(entry_name, semver_tag):
+            print("* Removed pinned version", tag, file=sys.stderr)
+            continue
+
         try:
             # Fetch the image labels
             with subprocess.Popen(["skopeo", "inspect", f'docker://{metadata["source"]}:{tag}'], stdout=subprocess.PIPE, stderr=sys.stderr) as proc:
@@ -183,9 +197,11 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
         if type(opin) is str:
             tag = opin
             prepend_pin = False
-        else:
+        elif 'tag' in opin:
             tag = opin['tag']
             prepend_pin = opin['prepend']
+        else:
+            continue # skip remove pins
         semver_tag = semver.parse_version_info(tag)
         try:
             # Fetch the pinned image labels
