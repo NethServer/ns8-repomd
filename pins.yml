@@ -22,4 +22,5 @@ nethvoice:
   - { tag: 1.2.1, prepend: False } # for core <3.6 #7350
 samba:
   - { tag: 2.5.0, prepend: False } # for core <3.9 #7384
-
+webtop:
+  - { tag: 1.4.4, prepend: False } # for tomcat and postgresql upgrade #7489
