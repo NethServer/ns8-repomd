@@ -217,13 +217,13 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
             "labels": image_labels,
         }
         if image_version in metadata["versions"]:
-            print("* Skipped pinned version", tag, "because it is already present.", file=sys.stderr)
+            print("* Skipped pinned version", tag, "because it is already present.", "Image labels:", image_labels, file=sys.stderr)
         else:
             if prepend_pin:
-                print("* Prepend pinned version", tag, file=sys.stderr)
+                print("* Prepend pinned version", tag, "Image labels:", image_labels, file=sys.stderr)
                 metadata["versions"].insert(0, image_version)
             else:
-                print("* Append pinned version", tag, file=sys.stderr)
+                print("* Append pinned version", tag, "Image labels:", image_labels, file=sys.stderr)
                 metadata["versions"].append(image_version)
 
     if metadata["versions"]:
