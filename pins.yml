@@ -16,8 +16,8 @@ nextcloud:
   - { tag: 1.4.3, prepend: False } # from NC29 to NC30
   - { tag: 1.5.2, prepend: False } # from NC30 to NC31 #7728
 mattermost:
-  - { tag: 2.2.0, prepend: False } # from PG 13 to 17.4 (MM 10.5) #7628
-  - { tag: 2.1.1, prepend: False } # from MM 8.1 to MM 9.11 #7245
+  - { tag: 2.1.1, prepend: False } # MM 9.11 to 10.5 #7245
+  - { tag: 2.2.0, prepend: False } # PG 13 to 17 #7628
 nethvoice-proxy:
   - { tag: 1.2.0, prepend: False } # for core <3.6 #7350
 nethvoice:
