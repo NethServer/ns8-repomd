@@ -1,0 +1,19 @@
+{
+  "name": "Mail",
+  "description": {
+    "en": "Manage a complete mail server with ease and security"
+  },
+  "categories": ["collaboration"],
+  "authors": [
+    {
+      "name": "NethServer team",
+      "email": "nethserver@nethesis.it"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/mail.html",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-mail"
+  },
+  "source": "ghcr.io/nethserver/mail"
+}
