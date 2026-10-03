@@ -1,0 +1,20 @@
+{
+  "name": "DNSMasq",
+  "description": {
+    "en": "Lightweight DNS and DHCP server for the local network",
+    "it": "Un server DNS e DHCP leggero per la rete locale"
+  },
+  "categories": ["system_administration"],
+  "authors": [
+    {
+      "name": "Tommaso Bailetti",
+      "email": "tommaso@nethesis.it"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/dnsmasq.html",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-dnsmasq"
+  },
+  "source": "ghcr.io/nethserver/dnsmasq"
+}
