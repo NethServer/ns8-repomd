@@ -9,7 +9,7 @@ set -e
 
 #
 # Read from standard input a list of image references. Images hosted on
-# docker.io are copied to ghcr.io/nethserver mirror. Configure
+# docker.io and quay.io are copied to ghcr.io/nethserver mirror. Configure
 # REGISTRY_AUTH_FILE as documented for `podman login`.
 #
 
@@ -19,7 +19,7 @@ fi
 
 jq -r '.[].versions[].labels."org.nethserver.images"' | \
 tr -s '[:blank:]' $'\n' | \
-sed -En '\|^docker\.io| {s|^docker.io/([^/]+):|docker.io/library/\1:|;p}' | \
+sed -En -e 's|^docker\.io/([^/]+):|docker.io/library/\1:|' -e '\#^(docker|quay)\.io/#p' | \
 sort | \
 uniq | \
 podman run --init --rm -i --entrypoint=[] --volume="${REGISTRY_AUTH_FILE}":/tmp/auth.json:z \
