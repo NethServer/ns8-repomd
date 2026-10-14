@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>NethServer/.github:ns8"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Container images of the repository build scripts",
+      "managerFilePatterns": [
+        "/(^|/)createrepo\\.sh$/",
+        "/(^|/)syncmirrors\\.sh$/"
+      ],
+      "matchStrings": [
+        "(?:docker://)?(?<depName>(?:docker|quay)\\.io/[-0-9a-z_/.]+):(?<currentValue>[-0-9a-zA-Z_.]+)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
+}

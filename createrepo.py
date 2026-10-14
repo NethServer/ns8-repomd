@@ -148,8 +148,8 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
 
         # Filter out non-semver tags and reverse-sort remaining tags from
         # younger to older:
-        semver_tags = list(sorted(filter(semver.VersionInfo.is_valid, repo_inspect["RepoTags"]),
-            key=semver.parse_version_info,
+        semver_tags = list(sorted(filter(semver.Version.is_valid, repo_inspect["RepoTags"]),
+            key=semver.Version.parse,
             reverse=True,
         ))
 
@@ -159,7 +159,7 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
 
     testing_found = False # record if a testing release was found
     for tag in semver_tags:
-        semver_tag = semver.parse_version_info(tag)
+        semver_tag = semver.Version.parse(tag)
 
         if testing_found and semver_tag.prerelease is not None:
             # skip older testing releases, we do not need them
@@ -202,7 +202,7 @@ for entry_path in glob.glob(path + '/*'): # do not match .git and similar
             prepend_pin = opin['prepend']
         else:
             continue # skip remove pins
-        semver_tag = semver.parse_version_info(tag)
+        semver_tag = semver.Version.parse(tag)
         try:
             # Fetch the pinned image labels
             with subprocess.Popen(["skopeo", "inspect", f'docker://{metadata["source"]}:{tag}'], stdout=subprocess.PIPE, stderr=sys.stderr) as proc:
