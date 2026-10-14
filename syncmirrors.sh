@@ -23,7 +23,7 @@ sed -En -e 's|^docker\.io/([^/]+):|docker.io/library/\1:|' -e '\#^(docker|quay)\
 sort | \
 uniq | \
 podman run --init --rm -i --entrypoint=[] --volume="${REGISTRY_AUTH_FILE}":/tmp/auth.json:z \
-docker://quay.io/skopeo/stable:latest \
+docker://quay.io/skopeo/stable:v1.22.3 \
 bash -c '
 declare -a failed_uploads rows
 declare -i found=0 uploaded=0
