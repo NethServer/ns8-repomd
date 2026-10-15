@@ -22,6 +22,16 @@ jobs:
       run: |
         bash createrepo.sh
 
+    - name: "Report module versions"
+      run: |
+        {
+          printf "\n### Module versions\n\n"
+          printf "| Module | Versions |\n"
+          printf "|---|---|\n"
+          jq -r '.[] | "| \(.id) | \([.versions[] | if .testing then "_\(.tag)_" else .tag end] | join(", ")) |"' repodata.json
+          printf "\nTesting versions are in italics.\n"
+        } >> $GITHUB_STEP_SUMMARY
+
     - name: "Sync registry mirrors"
       if: ${{ github.ref == 'refs/heads/main' }}
       env:
