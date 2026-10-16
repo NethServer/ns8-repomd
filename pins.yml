@@ -28,3 +28,5 @@ samba:
   - { tag: 2.5.0, prepend: False } # for core <3.9 #7384
 webtop:
   - { tag: 1.4.5, prepend: False } # for tomcat and postgresql upgrade #7489
+nethsecurity-controller:
+  - { match: "2.3.1", remove: True } # https://github.com/NethServer/ns8-nethsecurity-controller/pull/297 https://mattermost.nethesis.it/nethesis/pl/wbhkqphpfbfpdq1u3gj5u9fyfc
