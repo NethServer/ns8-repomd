@@ -1,0 +1,24 @@
+{
+  "name": "RustFS",
+  "description": {
+    "en": "S3-compatible object storage and MinIO replacement",
+    "it": "Storage ad oggetti S3-compatibile e sostituto di MinIO"
+  },
+  "categories": ["storage"],
+  "authors": [
+    {
+      "name": "Stéphane de Labrusse",
+      "email": "stephdl@de-labrusse.fr"
+    },
+    {
+      "name": "Markus Neuberger",
+      "email": "dev@markusneuberger.at"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/rustfs.html",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-rustfs"
+  },
+  "source": "ghcr.io/nethserver/rustfs"
+}
