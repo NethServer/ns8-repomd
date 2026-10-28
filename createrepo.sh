@@ -24,7 +24,7 @@ set -e
 
 if ! buildah containers --format "{{.ContainerName}}" | grep -q repomd-builder; then
     echo "Pulling Python runtime and Skopeo..."
-    buildah from --name repomd-builder -v "${PWD}:/usr/src:Z" docker.io/library/python:3.14.8-alpine
+    buildah from --name repomd-builder -v "${PWD}:/usr/src:Z" docker.io/library/python:3.15.1-alpine
     buildah run repomd-builder sh <<EOF
 python3 -mvenv /opt/pyenv --upgrade-deps
 /opt/pyenv/bin/pip3 install -r /usr/src/requirements.txt
