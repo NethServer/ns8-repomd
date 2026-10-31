@@ -1,0 +1,19 @@
+{
+  "name": "openldap",
+  "description": {
+    "en": "NethServer 8 core account provider module"
+  },
+  "categories": ["core"],
+  "authors": [
+    {
+      "name": "NethServer team",
+      "email": "nethserver@nethesis.it"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/user_domains.html#ldap-server-rfc2307",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-openldap"
+  },
+  "source": "ghcr.io/nethserver/openldap"
+}
