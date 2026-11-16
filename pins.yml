@@ -19,11 +19,6 @@ nextcloud:
 mattermost:
   - { tag: 2.1.1, prepend: False } # MM 9.11 to 10.5 #7245
   - { tag: 2.2.0, prepend: False } # PG 13 to 17 #7628
-nethvoice-proxy:
-  - { tag: 1.2.0, prepend: False } # for core <3.6 #7350
-nethvoice:
-  - { tag: 1.2.1, prepend: False } # for core <3.6 #7350
-  - { tag: 1.5.3, prepend: False } # for core <3.16 #7747
 samba:
   - { tag: 2.5.0, prepend: False } # for core <3.9 #7384
 webtop:
