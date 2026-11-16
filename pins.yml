@@ -6,8 +6,6 @@
 core:
   - { tag: 2.9.6, prepend: True } # See #7040 #7047
 mail:
-  - { tag: 1.4.10, prepend: False } # Workaround #7211
-  - { tag: 1.5.5, prepend: False } # Core 3.6.0
   - { match: "1.7.0", remove: True } # Bugs #7552 #7553
   - { match: "1.7.1", remove: True } # Bugs #7552 #7553
 nextcloud:
@@ -19,8 +17,6 @@ nextcloud:
 mattermost:
   - { tag: 2.1.1, prepend: False } # MM 9.11 to 10.5 #7245
   - { tag: 2.2.0, prepend: False } # PG 13 to 17 #7628
-samba:
-  - { tag: 2.5.0, prepend: False } # for core <3.9 #7384
 webtop:
   - { tag: 1.4.5, prepend: False } # for tomcat and postgresql upgrade #7489
 nethsecurity-controller:
