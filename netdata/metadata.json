@@ -1,0 +1,20 @@
+{
+  "name": "Netdata",
+  "description": {
+    "en": "Collects and displays the local system metrics",
+    "it": "Raccoglie e mostra le metriche del sistema locale"
+  },
+  "categories": ["monitoring"],
+  "authors": [
+    {
+      "name": "Stéphane de Labrusse",
+      "email": "stephdl@de-labrusse.fr"
+    }
+  ],
+  "docs": {
+    "documentation_url": "https://docs.nethserver.org/projects/ns8/en/latest/netdata.html",
+    "bug_url": "https://github.com/NethServer/dev",
+    "code_url": "https://github.com/NethServer/ns8-netdata"
+  },
+  "source": "ghcr.io/nethserver/netdata"
+}
